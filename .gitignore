@@ -1,15 +1,23 @@
-# Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
+*.orig
+*.pyc
+*.swp
 
-# Test binary, built with `go test -c`
-*.test
+/.cargo_home/
+/.idea/
+/.vscode/
+gclient_config.py_entries
+/gh-pages/
+/target/
+/std/hash/_wasm/target
 
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
+# Files that help ensure VSCode can work but we don't want checked into the
+# repo
+/node_modules
+/tsconfig.json
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
+# compiled wasm files
+std/wasi/testdata/snapshot_preview1/
+
+# MacOS generated files
+.DS_Store
+.DS_Store?
