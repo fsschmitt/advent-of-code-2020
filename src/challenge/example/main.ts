@@ -1,9 +1,11 @@
 // Example A
-export const a = (input: number[]) => {
-  return input.reduce((acc, curr) => acc + curr);
+export const a = (input: string[]) => {
+  const numbers = input.map( n => parseInt(n, 10));
+  return numbers.reduce((acc, curr) => acc + curr);
 }
 
 // Example B
-export const b = (input: number[]) => {
-  return input.reduce((acc, curr) => acc * curr);
+export const b = (input: string[]) => {
+  const numbers = input.map( n => parseInt(n, 10));
+  return numbers.reduce((acc, curr) => acc * curr);
 }

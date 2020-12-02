@@ -1,4 +1,4 @@
-export const readInputFromFile = async (path: string): Promise<number[]> => {
-  const text = await Deno.readTextFile(path);
-  return text.split('\n').map( n => parseInt(n, 10));
+export const readInput = async (path: string): Promise<string[]> => {
+  let input = await Deno.readTextFile(path);
+  return input.split('\n');
 }

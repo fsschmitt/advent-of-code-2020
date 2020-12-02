@@ -1,8 +1,9 @@
-export const a = (input: number[]) => {
-  for (let i = 0; i < input.length; i++) {
-    const ni = input[i];
-    for (let j = i + 1; j < input.length; j++) {
-      const nj = input[j];
+export const a = (input: string[]) => {
+  const numbers = input.map( n => parseInt(n, 10));
+  for (let i = 0; i < numbers.length; i++) {
+    const ni = numbers[i];
+    for (let j = i + 1; j < numbers.length; j++) {
+      const nj = numbers[j];
       if (ni + nj === 2020) {
         return ni * nj;
       }
@@ -11,13 +12,14 @@ export const a = (input: number[]) => {
   return 0;
 }
 
-export const b = (input: number[]) => {
-  for (let i = 0; i < input.length; i++) {
-    const ni = input[i];
-    for (let j = i + 1; j < input.length; j++) {
-      const nj = input[j];
-      for (let k = j + 1; k < input.length; k++) {
-        const nk = input[k];
+export const b = (input: string[]) => {
+  const numbers = input.map( n => parseInt(n, 10));
+  for (let i = 0; i < numbers.length; i++) {
+    const ni = numbers[i];
+    for (let j = i + 1; j < numbers.length; j++) {
+      const nj = numbers[j];
+      for (let k = j + 1; k < numbers.length; k++) {
+        const nk = numbers[k];
         if (ni + nj + nk === 2020) {
           return ni * nj * nk;
         }
