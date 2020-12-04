@@ -12,6 +12,11 @@ const countTreeInSlope = (input: string[], xincrement: number, yincrement: numbe
   return totalTrees;
 }
 
+export const readInput = (path: string): string[] => {
+  let input = Deno.readTextFileSync(path);
+  return input.split('\n');
+}
+
 export const a = (input: string[]): number => {
   return countTreeInSlope(input, 3, 1);
 }

@@ -1,5 +1,3 @@
-import { readInput } from './utils/file.ts'
-
 const resolveAll = async () => {
   for await (const dirEntry of Deno.readDir("./src/challenge")) {
     resolveDay(dirEntry.name);
@@ -7,8 +5,10 @@ const resolveAll = async () => {
 }
 
 const resolveDay = async (dirName: string) => {
-  let input = await readInput(`./src/challenge/${dirName}/input.txt`);
   import(`./challenge/${dirName}/main.ts`).then(source => {
+    // Read input
+    const input = source.readInput(`./src/challenge/${dirName}/input.txt`);
+
     // Execute Challenge A
     const a0 = performance.now();
     const resultA = source.a(input);

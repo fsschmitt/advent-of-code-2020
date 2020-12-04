@@ -17,6 +17,11 @@ const parsePassword = (input: string): Password => {
   }
 }
 
+export const readInput = (path: string): string[] => {
+  let input = Deno.readTextFileSync(path);
+  return input.split('\n');
+}
+
 export const a = (input: string[]) => {
   let validPwd = 0;
   for (let i = 0; i < input.length; i++) {
