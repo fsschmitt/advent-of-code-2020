@@ -103,5 +103,4 @@ export const b = (input: string[]): number => {
     resultsNew = fillSeats(resultsOld, toleranceSeats, isNextOnly);
   }
   return countSeats(resultsNew, OCCUPIED);
-  return 0;
 }
