@@ -23,29 +23,12 @@ const modularMultiplicativeInverse = (a: bigint, modulus: bigint) => {
  * https://en.wikipedia.org/wiki/Chinese_remainder_theorem
  */
 const solveCRT = (remainders: bigint[], modules: bigint[]) => {
-    // Multiply all the modulus
     const prod : bigint = modules.reduce((acc: bigint, val) => acc * val, 1n);
     
     return modules.reduce((sum, mod, index) => {
-        // Find the modular multiplicative inverse and calculate the sum
-    // SUM( remainder * productOfAllModulus/modulus * MMI ) (mod productOfAllModulus) 
         const p = prod / mod;
         return sum + (remainders[index] * modularMultiplicativeInverse(p, mod) * p);
     }, 0n) % prod;
-}
-
-const chineseRemainder = (busIDs: number[]): bigint => {
-    let p = BigInt(1);
-    let prod = BigInt(busIDs.filter(id => id !== 1).reduce((a, b) => a * b));
-    let sum = BigInt(0);
-    for (let i = 0; i < busIDs.length; i++) {
-        p = BigInt(prod) / BigInt(busIDs[i]);
-        sum += (BigInt(busIDs[i] - i) * BigInt(modularMultiplicativeInverse(p, BigInt(busIDs[i]))) * BigInt(p));
-    }
-    if (sum < 0) {
-        sum += prod;
-    }
-    return sum % prod;
 }
 
 export const readInput = (path: string): BusInfo => {
